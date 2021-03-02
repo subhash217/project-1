@@ -1,0 +1,43 @@
+.Navbar {
+  padding: 20px 27px 20px 25px;
+  display: flex;
+  .box-container {
+    background: #fff;
+    display: flex;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    height: 39px;
+    width: 690px;
+    border-radius: 24px;
+    z-index: 3;
+    height: 44px;
+    margin: 0 auto;
+
+    & > .input-container {
+      flex: 1;
+      display: flex;
+      padding-left: 26px;
+      padding-top: 7px;
+
+      input[type="text"] {
+        height: 24px;
+        width: 96%;
+        border: none;
+      }
+    }
+  }
+  .user-menu {
+    width: 12%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    button {
+      background: #1a73e8;
+      border: none;
+      color: #fff;
+      padding: 0px 28px;
+      border-radius: 5px;
+      height: 36px;
+    }
+  }
+}
