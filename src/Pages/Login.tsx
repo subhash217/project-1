@@ -11,9 +11,9 @@ const ViewTwo = styled(View)`
 `;
 export function Login() {
   return (
-    <>
+    <React.Fragment>
       <View>Login</View>
       <ViewTwo> Logout</ViewTwo>
-    </>
+    </React.Fragment>
   );
 }

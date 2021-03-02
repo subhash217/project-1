@@ -1,6 +1,5 @@
 import React from "react";
 
-export const About = (props: any) => {
-  console.log(props);
+export const About = () => {
   return <div>About</div>;
 };
