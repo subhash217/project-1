@@ -11,6 +11,7 @@ import NavBar from "./components/NavBar";
 import ReactFroms from "./forms/ReactFroms";
 import FormikForm from "./forms/FormikForm";
 import UserList from "./components/userList";
+import ErrorBoundary from "./utils/ErrorBoundary";
 
 export let myContext = React.createContext("subash");
 
@@ -25,7 +26,9 @@ const Root: React.FunctionComponent = () => {
   console.log(memoizedValue, memoizedcallback);
   return (
     <React.Fragment>
-      <NavBar />
+      <ErrorBoundary>
+        <NavBar />
+      </ErrorBoundary>
       <ul>
         <li>
           <NavLink
@@ -58,13 +61,13 @@ const Root: React.FunctionComponent = () => {
         <Route path="/login" component={Login} />
         <Route path="*" render={() => <Redirect to="/login" />} />
       </Switch>
-      {/* <UserList /> */}
+      <UserList />
       {/* <ReactFroms />
       <FormikForm /> */}
       {/* <Enhanced /> */}
-      <header className="navBar">
+      {/* <header className="navBar">
         <div>Microsoft</div>
-      </header>
+      </header> */}
       {/* <div id="container">
         <div id="one">One</div>
         <div id="two">Two</div>

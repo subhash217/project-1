@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { PrimaryButton } from "office-ui-fabric-react";
+import {
+  DocumentCard,
+  DocumentCardActivity,
+  DocumentCardPreview,
+  DocumentCardTitle,
+  IDocumentCardPreviewProps,
+} from "office-ui-fabric-react/lib/DocumentCard";
 import { Shimmer } from "office-ui-fabric-react/lib/Shimmer";
 import { Fabric } from "office-ui-fabric-react/lib/Fabric";
 import { mergeStyles } from "office-ui-fabric-react/lib/Styling";
 import { useSelector, useDispatch } from "react-redux";
 import { getUsers } from "../store/actions";
+import "./userList.scss";
 const wrapperClass = mergeStyles({
   padding: 2,
   selectors: {
@@ -15,16 +23,20 @@ const wrapperClass = mergeStyles({
 });
 
 function UserList(props: any) {
-  const [users, setUsers] = React.useState([]);
-  const [isLoading, setIsloading] = React.useState(true);
-  const [state, setState] = React.useState(false);
+  const [users, setUsers] = useState([]);
+  const [isLoading, setIsloading] = useState(true);
+  const [state, setState] = useState(false);
   const usersResult = useSelector((state: any) => state.users);
+  const dataList = usersResult.users;
   const dispatch = useDispatch();
-  console.log(usersResult);
+
   const getusers = () => {
-    setState(true);
-    dispatch(getUsers());
-    setIsloading(false);
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        setUsers(result);
+      });
   };
   const data = () => {
     let list;
@@ -38,22 +50,32 @@ function UserList(props: any) {
         </Fabric>
       );
     } else {
-      list = (
-        <ul>
-          {usersResult.users.map((user: any) => {
-            return <li>{user.title}</li>;
-          })}
-        </ul>
-      );
+      list =
+        // {dataList.map()}
+        null;
     }
     return list;
   };
+
   return (
     <React.Fragment>
       <div className="layout">
         <PrimaryButton onClick={getusers}>Get Users</PrimaryButton>
-        {state && data()}
-        {/* <div className="image"></div> */}
+        {/* {state && data()}  */}
+        <div className="card-container">
+          {users.map((u: any, i: any) => {
+            return (
+              <div className="card">
+                <DocumentCard key={i}>
+                  <DocumentCardTitle title={u.name} />
+                  <DocumentCardTitle title={u.email} />
+                  <DocumentCardTitle title={u.phone} />
+                  <DocumentCardTitle title={u.company.catchPhrase} />
+                </DocumentCard>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </React.Fragment>
   );

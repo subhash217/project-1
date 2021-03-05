@@ -1,0 +1,14 @@
+.layout {
+  .card-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    margin: 0 40px;
+
+    .card {
+      flex: 0 1 80px;
+      border: 1px solid black;
+    }
+  }
+}
