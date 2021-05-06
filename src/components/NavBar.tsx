@@ -1,6 +1,15 @@
 import React from "react";
 import "./NavBar.scss";
 export default function NavBar() {
+  const [render, setRender] = React.useState(true);
+  if (render) {
+    return <Header />;
+  } else {
+    throw new Error("Error Object");
+  }
+}
+
+const Header = () => {
   return (
     <>
       <header>
@@ -72,4 +81,4 @@ export default function NavBar() {
       </header>
     </>
   );
-}
+};
