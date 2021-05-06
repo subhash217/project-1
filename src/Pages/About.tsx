@@ -1,9 +1,14 @@
 import React from "react";
 
-export const About = () => {
-  return (
-    <>
-      <h2>About Page</h2>
-    </>
-  );
-};
+export class About extends React.Component {
+  state = { count: 0 };
+  render() {
+    const { count } = this.state;
+    return (
+      <>
+        <h2>About Page for Counter</h2>
+        <p>{count}</p>
+      </>
+    );
+  }
+}

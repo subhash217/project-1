@@ -1,7 +1,7 @@
 import React from "react";
 import "./NavBar.scss";
 export default function NavBar() {
-  const [render, setRender] = React.useState(false);
+  const [render, setRender] = React.useState(true);
   if (render) {
     return <Header />;
   } else {
