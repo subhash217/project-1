@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.scss";
 import { Route, Link, Switch, NavLink, Redirect } from "react-router-dom";
-import { About, Login, Dashboard } from "./Pages";
+import { About, Login, Dashboard, UserTable } from "./Pages";
 // import { TextField } from "office-ui-fabric-react/lib/TextField";
 import CounterFunction from "./components/counterFunction";
 import CounterClass from "./components/counterClass";
@@ -41,6 +41,14 @@ const Root: React.FunctionComponent = () => {
         <li>
           <NavLink
             activeStyle={{ color: "red", textDecoration: "none" }}
+            to="/usertable"
+          >
+            UserTable
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            activeStyle={{ color: "red", textDecoration: "none" }}
             to={{ pathname: "/dashboard", search: "?id=123", hash: "#str" }}
           >
             Dashboard
@@ -59,23 +67,16 @@ const Root: React.FunctionComponent = () => {
         <Route path="/about" component={About} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/login" component={Login} />
+        <Route path="/usertable" component={UserTable} />
         <Route path="*" render={() => <Redirect to="/login" />} />
       </Switch>
-      <UserList />
+      {/* <UserList /> */}
       {/* <ReactFroms />
       <FormikForm /> */}
       {/* <Enhanced /> */}
       {/* <header className="navBar">
         <div>Microsoft</div>
       </header> */}
-      {/* <div id="container">
-        <div id="one">One</div>
-        <div id="two">Two</div>
-        <div id="three">Three</div>
-        <div id="four">Four</div>
-        <div id="five">Five</div>
-        <div id="six">Six</div>
-      </div> */}
       {/* <myContext.Provider value="new value">
         <CounterFunction heading="Counter With Function Component" />
         <CounterClass heading="Counter With Class Component" />
