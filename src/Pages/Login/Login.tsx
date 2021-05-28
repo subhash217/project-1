@@ -9,7 +9,7 @@ const View = styled.button`
 const ViewTwo = styled(View)`
   color: red;
 `;
-export function Login() {
+export default function Login() {
   return (
     <React.Fragment>
       <View>Login</View>

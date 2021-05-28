@@ -1,6 +1,6 @@
 import React from "react";
 
-export function Dashboard(props: any) {
+function Dashboard(props: any) {
   return (
     <>
       {props.page}
@@ -19,3 +19,5 @@ Dashboard.defaultProps = {
   page: "Dashboard",
   sectionList: 5,
 };
+
+export default Dashboard;

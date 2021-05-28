@@ -1,4 +1,7 @@
-import React from "react";
+import "react-app-polyfill/ie11";
+import "react-app-polyfill/stable";
+import "./polyfills";
+import React, { StrictMode } from "react";
 import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import "./styles.scss";
@@ -11,9 +14,9 @@ function initialBoot() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <React.StrictMode>
+        <StrictMode>
           <Root />
-        </React.StrictMode>
+        </StrictMode>
       </BrowserRouter>
     </Provider>
   );

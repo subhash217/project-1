@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.scss";
 import { Route, Link, Switch, NavLink, Redirect } from "react-router-dom";
-import { About, Login, Dashboard, UserTable } from "./Pages";
+import { About, Dashboard, Login, UserTable } from "./Pages";
 // import { TextField } from "office-ui-fabric-react/lib/TextField";
 import CounterFunction from "./components/counterFunction";
 import CounterClass from "./components/counterClass";
@@ -25,7 +25,7 @@ const Root: React.FunctionComponent = () => {
   const memoizedValue = React.useMemo(() => "bar", []);
   console.log(memoizedValue, memoizedcallback);
   return (
-    <React.Fragment>
+    <>
       <ErrorBoundary>
         <NavBar />
       </ErrorBoundary>
@@ -82,7 +82,7 @@ const Root: React.FunctionComponent = () => {
         <CounterClass heading="Counter With Class Component" />
       </myContext.Provider>
       <Renderprops title={(msg: string) => <div>{msg}</div>} /> */}
-    </React.Fragment>
+    </>
   );
 };
 
