@@ -1,19 +1,29 @@
 import React from "react";
-import styled from "styled-components";
+import { Formik } from "formik";
 
-const View = styled.button`
-  color: orange;
-  border: 2px solid orange;
-`;
-
-const ViewTwo = styled(View)`
-  color: red;
-`;
-export default function Login() {
+const Login = () => {
   return (
-    <React.Fragment>
-      <View>Login</View>
-      <ViewTwo> Logout</ViewTwo>
-    </React.Fragment>
+    <>
+      <Formik
+        initialValues={{ name: "", pass: "" }}
+        onSubmit={() => alert("submited")}
+      >
+        {() => (
+          <form>
+            <div>
+              <label>User name</label>
+              <input type="text" />
+            </div>
+            <div>
+              <label>Password</label>
+              <input type="password" />
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+        )}
+      </Formik>
+    </>
   );
-}
+};
+
+export default Login;
