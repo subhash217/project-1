@@ -1,11 +1,18 @@
 import React from "react";
 
-export function Dashboard(props: any) {
+function Dashboard(props: any) {
+  const call = (e: any) => {
+    e.preventDefault();
+    console.log("working");
+  };
   return (
     <>
       {props.page}
       {props.sectionList}
       <DashBoardPage {...props} />
+      <a aria-label="home page" href="/" onClick={call}>
+        google
+      </a>
     </>
   );
 }
@@ -19,3 +26,5 @@ Dashboard.defaultProps = {
   page: "Dashboard",
   sectionList: 5,
 };
+
+export default Dashboard;
