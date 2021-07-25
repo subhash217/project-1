@@ -1,11 +1,18 @@
 import React from "react";
 
 function Dashboard(props: any) {
+  const call = (e: any) => {
+    e.preventDefault();
+    console.log("working");
+  };
   return (
     <>
       {props.page}
       {props.sectionList}
       <DashBoardPage {...props} />
+      <a aria-label="home page" href="/" onClick={call}>
+        google
+      </a>
     </>
   );
 }
